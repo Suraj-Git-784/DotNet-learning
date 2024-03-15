@@ -1,20 +1,24 @@
-﻿@{
+﻿@model EmployeeModel
+@{
     ViewData["Title"] = "Home Page";
-    var emp = TempData["EmployeeDetails"] as EmployeeModel;
+    // var emp = TempData["EmployeeDetails"] as EmployeeModel;
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-
+<h5>@Model.EmpId</h5>
+<h5>@Model.EmpName</h5>
+<h5>@Model.EmpSalary</h5>
+<h5>@Model.EmpDesignation</h5>
 @{
-    if(emp != null)
-    {
-        <h3>ID: @emp.EmpId</h3>
-        <h3>Name: @emp.EmpName</h3>
-        <h3>Salary: @emp.EmpSalary</h3>
-        <h3>Designation: @emp.EmpDesignation</h3>
-    }
+    // if(emp != null)
+    // {
+    //     <h3>ID: @emp.EmpId</h3>
+    //     <h3>Name: @emp.EmpName</h3>
+    //     <h3>Salary: @emp.EmpSalary</h3>
+    //     <h3>Designation: @emp.EmpDesignation</h3>
+    // }
 }
 

@@ -26,18 +26,27 @@ namespace WebAppDotNet.Controllers
         //}
         public IActionResult Index()
         {
-            EmployeeModel emp = new EmployeeModel()
-            {
-                EmpId = 1,
-                EmpName = "Suraj",
-                EmpSalary = 20000,
-                EmpDesignation = "Web Dev"
-            };
+            //EmployeeModel emp = new EmployeeModel()
+            //{
+            //    EmpId = 1,
+            //    EmpName = "Suraj",
+            //    EmpSalary = 20000,
+            //    EmpDesignation = "Web Dev"
+            //};
 
             //ViewData["EmployeeDetails"] = emp;
             //ViewBag.EmployeeDetails = emp;
-            TempData["EmployeeDetails"] = emp;
-            return View();
+            //TempData["EmployeeDetails"] = emp;
+
+
+            EmployeeModel obj = new EmployeeModel()
+            {
+               EmpId = 1,
+               EmpName = "Suraj",
+               EmpDesignation = "Manager",
+               EmpSalary = 50000
+            };
+            return View(obj);
         }
 
         public IActionResult Privacy()
