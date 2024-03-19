@@ -77,6 +77,10 @@ namespace WebAppDotNet.Controllers
         [HttpPost]
         public IActionResult Index(EmployeeModel emp)
         {
+            if (ModelState.IsValid)
+            {
+                ModelState.Clear();
+            }
             return View();
             //if(ModelState.IsValid)
             //{
