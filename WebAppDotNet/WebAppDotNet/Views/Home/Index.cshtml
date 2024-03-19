@@ -1,42 +1,17 @@
-﻿@* @model EmployeeModel *@
-@* @model List<StudentModel> *@
-    @model WebAppDotNet.Models.EmployeeModel    
+﻿@model EmployeeModel
 @{
     ViewData["Title"] = "Home Page";
     // var emp = TempData["EmployeeDetails"] as EmployeeModel;
 }
-<link href="~/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-
-@* <a href="/Home/Contact/1">Contact Page 1</a> *@
-
-@* using MVC *@
-
-<br />
-@* This is generate anchor *@
-@* @Html.ActionLink("Contact Page 2", "Contact", "Home", new {id = 1}); *@
-<br />
-
-@* This will generatre only href *@
-@* <a href="@Url.Action("Contact", "Home", new {id = 1})">Contact Page 3</a> *@
-<br />
-
-@* Tag Helper *@
-@* <a asp-controller="Home" asp-action="Contact" asp-route-id="1">Contact Page 4</a> *@
-@* <h5>@Model.EmpId</h5>
+<h5>@Model.EmpId</h5>
 <h5>@Model.EmpName</h5>
 <h5>@Model.EmpSalary</h5>
-<h5>@Model.EmpDesignation</h5> *@
-@* <button type="button" class="btn btn-primary">Primary</button> *@
-
-@* ********************Image TagHelpers******************** *@
-
-
-
-
+<h5>@Model.EmpDesignation</h5>
 @{
     // if(emp != null)
     // {
@@ -47,67 +22,3 @@
     // }
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <form class="d-grid" asp-action="Index" asp-controller="Home" method="post">
-                <br />
-                
-                <input asp-for="Name" placeholder="Your Name" data-val="true"  id="Name" class="form-control"/>
-                <span asp-validation-for="Name" style="color: red"></span>
-                <br />
-                <input asp-for="Email" placeholder="Your Email" id="Email" class="form-control" />
-                <span asp-validation-for="Email" style="color: red"></span>
-                <br />
-                <input asp-for="Age" placeholder="Your Age" data-val="true" id="Age" class="form-control" />
-                <span asp-validation-for="Age" style="color: red"></span>
-                <br />
-                <input asp-for="Password" placeholder="Your Password" data-val="true" id="Name" class="form-control" />
-                <span asp-validation-for="Password" style="color: red"></span>
-                <br />
-               @*  
-                <select asp-for="Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
-                    <option value="">Select Gender</option>
-                </select>
-                <br />
-                <input asp-for="Age" placeholder="Enter Age" data-val="true"  id="Age" class="form-control" />
-                <span asp-validation-for="Age" style="color: red"></span>
-                <br />
-                
-                <input asp-for="Salary" placeholder="Enter Salary" id="Salary" data-val="true" class="form-control" />
-                <br />
-                <label>
-                    Married:
-                    <div class="form-check">
-                        <input asp-for="Married" value="Yes" class="form-check-input" type="radio">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input asp-for="Married" value="No" class="form-check-input" type="radio">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            No  
-                        </label>
-                    </div>
-                </label>
-                <br />
-                <textarea asp-for="Description" placeholder="Description" class="form-control"></textarea>
-                <br />
-                <br />
-                <br />
-                <br /> *@
-                <input type="submit" name="Submit" class="btn btn btn-outline-primary btn-block" />
-            </form>
-        </div>
-    </div>
-</div>
-
-<script src="~/twitter-bootstrap/js/bootstrap.bundle.js"></script>
-<script src="~/twitter-bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="~/twitter-bootstrap/js/bootstrap.esm.js"></script>
-<script src="~/twitter-bootstrap/js/bootstrap.esm.min.js"></script>
-<script src="~/twitter-bootstrap/js/bootstrap.js"></script>
-<script src="~/twitter-bootstrap/js/bootstrap.min.js"></script>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/jquery/dist/jquery.js"></script>
