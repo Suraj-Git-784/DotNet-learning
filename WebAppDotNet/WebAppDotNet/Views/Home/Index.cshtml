@@ -18,18 +18,29 @@
         <div class="col-sm-4">
             <form class="d-grid" asp-action="Index" asp-controller="Home" method="post">
                 <br />
-                
-                <input asp-for="Name" placeholder="Your Name" data-val="true"  id="Name" class="form-control"/>
+                <label asp-for="Name"></label>
+                <input asp-for="Name" placeholder="Your Name" data-val="true" class="form-control"/>
                 <span asp-validation-for="Name" style="color: red"></span>
                 <br />
+                <label asp-for="Email"></label>
                 <input asp-for="Email" placeholder="Your Email" id="Email" class="form-control" />
                 <span asp-validation-for="Email" style="color: red"></span>
                 <br />
+                <label asp-for="Age"></label>
                 <input asp-for="Age" placeholder="Your Age" data-val="true" id="Age" class="form-control" />
                 <span asp-validation-for="Age" style="color: red"></span>
                 <br />
-                <input asp-for="Password" placeholder="Your Password" data-val="true" id="Name" class="form-control" />
+                <label asp-for="Password"></label>
+                <input asp-for="Password" placeholder="Your Password" data-val="true"  class="form-control" />
                 <span asp-validation-for="Password" style="color: red"></span>
+                <br />
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" placeholder="Confirm Password" data-val="true"  class="form-control" />
+                <span asp-validation-for="ConfirmPassword" style="color: red"></span>
+                <br />
+                <label asp-for="WebsiteUrl"></label>
+                <input asp-for="WebsiteUrl" placeholder="Website URL" data-val="true" class="form-control" />
+                <span asp-validation-for="WebsiteUrl" style="color: red"></span>
                 <br />
                @*  
                 <select asp-for="Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
