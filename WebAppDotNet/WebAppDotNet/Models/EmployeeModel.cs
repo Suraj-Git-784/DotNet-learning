@@ -1,27 +1,34 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAppDotNet.Models
 {
     public class EmployeeModel
     {
-        [Display(Name = "Name")]
+        [Key] //Primary Key
+        public int Id { get; set; }
+        //[Display(Name = "Name")]
         [Required(ErrorMessage = "Name cannot be empty")]
-        [StringLength(15, MinimumLength = 3, ErrorMessage = "asdasd")]
-        public string Name { get; set; }
-
+        //[StringLength(15, MinimumLength = 3, ErrorMessage = "asdasd")]
+        [Column("EmployeeName", TypeName ="varchar(100)")]
+        public required string Name { get; set; }
 
         //Enum = Collection of constants
-        [Display(Name = "Age")]
+        //[Display(Name = "Age")]
         [Required(ErrorMessage = "Age is required")]
         public int? Age { get; set; }
 
 
         //public Gender Gender { get; set; }
         [Required(ErrorMessage = "Email cannot be empty")]
-        [EmailAddress]
-        [Display(Name = "Email")]
+        //[EmailAddress]
+        //[Display(Name = "Email")]
+        [Column("EmployeeEmail", TypeName = "varchar(100)")]
         public required string Email { get; set; }
 
+        [Required(ErrorMessage = "Please provide gender")]
+        [Column("EmployeeGender", TypeName = "varchar(10)")]
+        public required string Gender { get; set; }
 
         //[Display(Name = "Password")]
         //[Required(ErrorMessage = "Password is requried")]

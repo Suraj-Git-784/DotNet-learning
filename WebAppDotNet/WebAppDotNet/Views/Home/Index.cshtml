@@ -1,92 +1,53 @@
-﻿@* @model EmployeeModel *@
-@model WebAppDotNet.Models.EmployeeModel
+﻿@model IEnumerable<WebAppDotNet.Models.EmployeeModel>
+
 @{
-    ViewData["Title"] = "Home Page";
-    // var emp = TempData["EmployeeDetails"] as EmployeeModel;
-}
-<link href="~/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
-@* ******************TagHelpers****************** *@
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <div asp-validation-summary="All" style="color: red;"></div>
-            <form class="d-grid" asp-action="Index" asp-controller="Home" method="post">
-                <br />
-                <label asp-for="Name"></label>
-                <input asp-for="Name" placeholder="Your Name" data-val="true" class="form-control"/>
-                @* <span asp-validation-for="Name" style="color: red"></span> *@
-                <br />
-                <label asp-for="Email"></label>
-                <input asp-for="Email" placeholder="Your Email" id="Email" class="form-control" />
-                @* <span asp-validation-for="Email" style="color: red"></span> *@
-                <br />
-                <label asp-for="Age"></label>
-                <input asp-for="Age" placeholder="Your Age" data-val="true" id="Age" class="form-control" />
-                @* <span asp-validation-for="Age" style="color: red"></span> *@
-                <br />
-               @*  <label asp-for="Password"></label>
-                <input asp-for="Password" placeholder="Your Password" data-val="true"  class="form-control" />
-                <span asp-validation-for="Password" style="color: red"></span>
-                <br />
-                <label asp-for="ConfirmPassword"></label>
-                <input asp-for="ConfirmPassword" placeholder="Confirm Password" data-val="true"  class="form-control" />
-                <span asp-validation-for="ConfirmPassword" style="color: red"></span>
-                <br />
-                <label asp-for="WebsiteUrl"></label>
-                <input asp-for="WebsiteUrl" placeholder="Website URL" data-val="true" class="form-control" />
-                <span asp-validation-for="WebsiteUrl" style="color: red"></span>
-                <br /> *@
-               @*  
-                <select asp-for="Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
-                    <option value="">Select Gender</option>
-                </select>
-                <br />
-                <input asp-for="Age" placeholder="Enter Age" data-val="true"  id="Age" class="form-control" />
-                <span asp-validation-for="Age" style="color: red"></span>
-                <br />
-                
-                <input asp-for="Salary" placeholder="Enter Salary" id="Salary" data-val="true" class="form-control" />
-                <br />
-                <label>
-                    Married:
-                    <div class="form-check">
-                        <input asp-for="Married" value="Yes" class="form-check-input" type="radio">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input asp-for="Married" value="No" class="form-check-input" type="radio">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            No  
-                        </label>
-                    </div>
-                </label>
-                <br />
-                <textarea asp-for="Description" placeholder="Description" class="form-control"></textarea>
-                <br />
-                <br />
-                <br />
-                <br /> *@
-                <input type="submit" name="Submit" class="btn btn btn-outline-primary btn-block" />
-            </form>
-        </div>
-    </div>
-</div>
-@{
-    // if(emp != null)
-    // {
-    //     <h3>ID: @emp.EmpId</h3>
-    //     <h3>Name: @emp.EmpName</h3>
-    //     <h3>Salary: @emp.EmpSalary</h3>
-    //     <h3>Designation: @emp.EmpDesignation</h3>
-    // }
+    ViewData["Title"] = "Index";
 }
 
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
