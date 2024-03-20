@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Http
+@* @inject Microsoft.AspNetCore.Http.IHttpContextAccessor accessor; *@
+@{
+    ViewData["Title"] = "About";
+}
+
+<h1>About</h1>
+
+ <h4>@ViewBag.Data</h4>
+@* <h4>@accessor.HttpContext.Session.GetString("MyKey")</h4> *@
