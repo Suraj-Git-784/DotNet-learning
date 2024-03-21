@@ -10,6 +10,14 @@
     {
         <p style="color: red;">*@ViewBag.Message</p>
     }
+    if( TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@TempData["Success"]</strong>
+            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close" aria-hidden="true">
+            </button>
+        </div>
+    }
 }
 <hr />
 <div class="row">
@@ -31,6 +39,9 @@
                 <input type="submit" value="Login" class="btn btn-primary" />
             </div>
         </form>
+        <p>
+            <a asp-controller="Home" asp-action="Signup">New User?</a>
+        </p>
     </div>
 </div>
 

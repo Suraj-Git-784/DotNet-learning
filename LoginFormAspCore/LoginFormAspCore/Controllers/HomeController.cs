@@ -69,6 +69,23 @@ namespace LoginFormAspCore.Controllers
             }
             return View();
         }
+        public IActionResult Signup()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Signup(UserTable user)
+        {
+            if(ModelState.IsValid)
+            {
+               await context.UserTables.AddAsync(user);
+               await context.SaveChangesAsync();
+               TempData["Success"] = "Registered Successfully";
+                return RedirectToAction("Login");
+            }
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
