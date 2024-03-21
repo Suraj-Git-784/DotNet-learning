@@ -2,9 +2,15 @@ using LoginFormAspCore.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LoginFormAspCore.Controllers
 {
+    //public enum Gender
+    //{
+    //    Male = 0,
+    //    Female = 1,
+    //}
     public class HomeController : Controller
     {
         private readonly CodeFirstDbContext context;
@@ -86,6 +92,41 @@ namespace LoginFormAspCore.Controllers
             }
             return View();
         }
+        public IActionResult Dropdown()
+        {
+            List<SelectListItem> Gender = new()
+            {
+                new SelectListItem {Value = "male", Text="Male"},
+                new SelectListItem {Value = "female", Text="Female"},
+
+            };
+            ViewBag.Gender = Gender;
+            return View();
+        }
+
+        public IActionResult Products()
+        {
+            List<Product> products = new List<Product>()
+            {
+                new Product()
+                {
+                    Id = 1,
+                    Name = "Reebok",
+                    Description = "description1",
+                    Price = 10000,
+                    Image = "~/images/download (2).jpg"
+                },
+                new Product()
+                {
+                    Id = 1,
+                    Name = "Reebok",
+                    Description = "description1",
+                    Price = 10000,
+                    Image = "~/images/images (1).jpg"
+                }
+            };
+            return View(products);
+        }        
         public IActionResult Privacy()
         {
             return View();

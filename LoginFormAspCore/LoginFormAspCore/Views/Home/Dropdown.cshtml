@@ -1,0 +1,15 @@
+﻿@using LoginFormAspCore.Controllers;
+@{
+    ViewData["Title"] = "Dropdown";
+}
+
+<h1>Dropdown</h1>
+
+@* <label class="form-label">Select Gender</label>
+@Html.DropDownList("Gender", Html.GetEnumSelectList<Gender>(), "Select Gender", new {@class= "form-control"})
+ *@
+
+<label class="form-label">Select Gender</label>
+@Html.DropDownList("Gender", ViewBag.Gender, "Select Gender", new { @class = "form-control" })
+
+<partial name="_EmployeeNames" />
